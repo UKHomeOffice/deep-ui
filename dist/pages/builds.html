@@ -1,0 +1,22 @@
+<table class="table table-striped table-bordered table-hover" id="dataTables-example">
+
+  <thead>
+  <tr>
+    <th class="mdl-data-table__cell--non-numeric">Created</th>
+    <th>Repo</th>
+    <th>Branch</th>
+    <th>Commit</th>
+    <th>Author</th>
+  </tr>
+</thead>
+<tbody>
+      <tr ng-repeat="wh in webhooks">
+          <td>{{wh.build.created_at }}</td>
+          <td>{{wh.repo.name}}</td>
+          <td>{{wh.build.brancj}}</td>
+          <td>{{wh.build.commit}}</td>
+          <td>{{wh.build.author}}</td>
+      </tr>
+  </tbody>
+</table>
+

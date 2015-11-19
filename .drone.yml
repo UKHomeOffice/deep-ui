@@ -1,0 +1,34 @@
+
+notify:
+  webhook:
+    image: ipedrazas/drone-webhook
+    urls:
+      - http://deep-api.ipedrazas.k8s.co.uk:5000/webhooks
+
+publish:
+  docker:
+    environment:
+      - DOCKER_LAUNCH_DEBUG=true
+    username: $$DOCKER_USER
+    password: $$DOCKER_PASSWORD
+    email: $$DOCKER_EMAIL
+    repo: ipedrazas/deep-web
+    tag:
+      - latest
+      - "$$BUILD_NUMBER"
+    when:
+      branch: master
+
+    branch: master
+
+deploy:
+  kubernetes:
+    image: ipedrazas/drone-kubernetes
+    replicationcontrollers:
+      - kubernetes/deep-web-rc.json
+    services: []
+    token: $$TOKEN
+    apiserver: $$APISERVER
+    namespace: default
+    webhook: http://deep-api.ipedrazas.k8s.co.uk:5000/deploys
+    webhook_token: 12345abcdf
