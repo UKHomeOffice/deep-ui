@@ -7,12 +7,13 @@ notify:
 
 publish:
   docker:
+    registry: quay.io
     environment:
       - DOCKER_LAUNCH_DEBUG=true
-    username: $$DOCKER_USER
-    password: $$DOCKER_PASSWORD
-    email: $$DOCKER_EMAIL
-    repo: ipedrazas/deep-web
+    username: $$QUAY_USER
+    password: $$QUAY_PASSWORD
+    email: $$QUAY_EMAIL
+    repo: quay.io/ukhomeofficedigital/deep-ui
     tag:
       - latest
       - "$$BUILD_NUMBER"

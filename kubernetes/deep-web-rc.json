@@ -1,0 +1,37 @@
+{
+  "apiVersion": "v1",
+  "kind": "ReplicationController",
+  "metadata": {
+    "name": "deep-web",
+    "labels": {
+      "name": "deep-web",
+      "deep": "web"
+    }
+  },
+  "spec": {
+    "replicas": 1,
+    "template": {
+      "metadata": {
+        "name": "deep-web",
+        "labels": {
+          "name": "deep-web",
+          "deep": "web"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "deep-web",
+            "image": "quay.io/ukhomeofficedigital/deep-ui:latest",
+           "ports":[
+                     {
+                        "containerPort": 80,
+                        "protocol":"TCP"
+                     }
+                  ]
+          }
+        ]
+      }
+    }
+  }
+}
