@@ -24,13 +24,13 @@ app.controller('MainCtrl', function($scope, $location, api, $sce) {
 
     api.getDeploys().success(function(data){
         console.log(data);
-        $scope.deploys = data._items;
+        $scope.deploys = data._items.reverse();
         $scope.numDeploys = data._meta.total;
     });
 
     api.getWebhooks().success(function(data){
         console.log(data._items);
-        $scope.webhooks = data._items;
+        $scope.webhooks = data._items.reverse();
         $scope.numBuilds = data._meta.total;
     });
 

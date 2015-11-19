@@ -10,11 +10,11 @@ app.config(['$routeProvider', '$locationProvider',
   function($routeProvider, $locationProvider) {
     $routeProvider
       .when('/dashboard', {
-        templateUrl: 'dashboard.html',
+        templateUrl: '/pages/dashboard.html',
         controller: 'MainCtrl'
       })
       .when('/blueprints', {
-        templateUrl: 'detail.html',
+        templateUrl: '/pages/blueprints.html',
         controller: 'MainCtrl'
       })
       .when('/builds', {

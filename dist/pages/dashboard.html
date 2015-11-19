@@ -137,7 +137,7 @@
 </thead>
 <tbody>
       <tr ng-repeat="deploy in deploys | limitTo:4">
-          <td>{{deploy.Timestamp  | date:'dd-MM-yyyy HH:mm:ss Z'}}</td>
+          <td>{{deploy.Timestamp  | date:'dd-MM-yyyy HH:mm:ss'}}</td>
           <td>
             <ul ng-repeat="img in deploy.Images">
               <li style="display: inline;">{{img}}</li>
@@ -194,7 +194,7 @@
 </thead>
 <tbody>
       <tr ng-repeat="wh in webhooks | limitTo:4">
-          <td>{{wh.build.created_at | date:'dd-MM-yyyy HH:mm:ss Z'}}</td>
+          <td>{{wh.build.created_at | date:'dd-MM-yyyy HH:mm:ss'}}</td>
           <td>{{wh.repo.name}}</td>
           <td>{{wh.build.brancj}}</td>
           <td>{{wh.build.commit}}</td>
