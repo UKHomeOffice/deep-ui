@@ -17,10 +17,16 @@ app.factory("api", function($q, $http) {
     return $http.get( REPORT_API + '/reports')
   };
 
+
+  var getGithubRepos = function(){
+    return $http.get("https://api.github.com/users/ukhomeoffice/repos")
+  }
+
   return {
     getDeploys: getDeploys,
     getDependencies: getDependencies,
     getWebhooks: getWebhooks,
     getTestResults: getTestResults,
+    getGithubRepos: getGithubRepos,
   };
 });

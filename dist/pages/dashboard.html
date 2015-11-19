@@ -14,7 +14,7 @@
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">12</div>
+                                    <div class="huge">{{numDeploys}}</div>
                                     <div>New Deploys!</div>
                                 </div>
                             </div>
@@ -36,8 +36,8 @@
                                     <i class="fa fa-github fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">26</div>
-                                    <div>Github Issues!</div>
+                                    <div class="huge">{{githubrepos}}</div>
+                                    <div>Github Repos!</div>
                                 </div>
                             </div>
                         </div>
@@ -58,7 +58,7 @@
                                     <i class="fa fa-thumbs-o-up fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">124</div>
+                                    <div class="huge">{{numBuilds}}</div>
                                     <div>Passed Builds!</div>
                                 </div>
                             </div>
@@ -80,7 +80,7 @@
                                     <i class="fa fa-frown-o fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">13</div>
+                                    <div class="huge">{{failedBuilds}}</div>
                                     <div>Failed Builds!</div>
                                 </div>
                             </div>

@@ -37,8 +37,22 @@ app.controller('MainCtrl', function($scope, $location, api, $sce) {
     api.getTestResults().success(function(data){
         console.log(data._items);
         $scope.results = data._items;
+        var numFailures = 0;
+        _.each(data._items, function(item){
+            var tests = item.report.testsuite;
+            _.each(tests, function(test){
+                if(test.failure){
+                    numFailures++;
+                }
+            });
+        });
+        $scope.failedBuilds = numFailures;
     });
 
+    api.getGithubRepos().success(function(data){
+        console.log(data);
+        $scope.githubrepos = data.length;
+    });
 
 
     $scope.renderHtml = function (htmlCode) {
