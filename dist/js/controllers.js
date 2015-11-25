@@ -13,15 +13,6 @@ function makeid()
 
 app.controller('MainCtrl', function($scope, $location, api, $sce) {
 
-    // api.getDependencies().success(function(data){
-    //     console.log(data._items);
-    //     $scope.dependencies = data._items;
-    // });
-
-    console.log("Main");
-
-
-
     api.getDeploys().success(function(data){
         console.log(data);
         $scope.deploys = data._items.reverse();
@@ -59,5 +50,35 @@ app.controller('MainCtrl', function($scope, $location, api, $sce) {
         console.log(htmlCode);
         return $sce.trustAsHtml(htmlCode);
     };
+
+});
+
+
+
+app.controller('AppsCtrl', function($scope, api) {
+    api.getApplications().success(function(data){
+        console.log(data._items);
+
+        $scope.applications = data._items;
+    });
+
+});
+
+
+app.controller('HealthCtrl', function($scope, api) {
+    api.getApplications().success(function(data){
+        $scope.apps = data._items;
+        console.log($scope.apps);
+        _.each($scope.apps, function(app){
+            api.getHealthchecksByApp(app._id).success(function(healthdata){
+                app.healthchecks = healthdata._items;
+                _.each(app.healthchecks, function(hchk){
+                    api.getChecksByHealthcheck(hchk._id).success(function(chk){
+                        hchk.status = chk._items;
+                    });
+                });
+            });
+        });
+    });
 
 });

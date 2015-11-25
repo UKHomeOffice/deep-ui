@@ -1,0 +1,19 @@
+.apps{
+    list-style-type: none;
+}
+
+.inline{
+     display: inline;
+}
+
+.green{
+    color: green;
+}
+
+.red{
+    color: red;
+}
+
+.apptitle{
+    text-transform: capitalize;
+}

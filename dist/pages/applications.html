@@ -1,0 +1,8 @@
+<ul ng-repeat="app in applications" class="apps">
+  <li>{{app.name}}</li>
+  <li>
+    <ul ng-repeat="comp in app.components" class="apps">
+      <li>{{comp.name}}</li>
+    </ul>
+  </li>
+</ul>

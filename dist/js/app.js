@@ -1,8 +1,12 @@
 'use strict';
 
-var DEPDEPHOST = "http://deep-api.ipedrazas.k8s.co.uk:5000"
-var REPORT_API = "http://deep-reports.ipedrazas.k8s.co.uk:5000"
-// var DEPDEPHOST = "http://localhost:5000"
+// var DEPDEPHOST = "http://deep-api.ipedrazas.k8s.co.uk:5000"
+// var REPORT_API = "http://deep-reports.ipedrazas.k8s.co.uk:5000"
+
+var DEPDEPHOST = "http://localhost:5000";
+var REPORT_API = "http://localhost:5000";
+var APPS_API = "http://localhost:5000";
+var HEALTH_API = "http://localhost:5000";
 
 var app = angular.module('dsp', ['ngRoute']);
 
@@ -25,11 +29,21 @@ app.config(['$routeProvider', '$locationProvider',
         templateUrl: '/pages/deploys.html',
         controller: 'MainCtrl'
       })
+      .when('/applications', {
+        templateUrl: '/pages/applications.html',
+        controller: 'AppsCtrl'
+      })
+      .when('/health', {
+        templateUrl: '/pages/health.html',
+        controller: 'HealthCtrl'
+      })
        .when('/', {
         templateUrl: '/pages/dashboard.html',
         controller: 'MainCtrl'
       })
-      ;
+       .otherwise({
+        redirectTo: '/'
+      });
 
     $locationProvider.html5Mode({
           enabled: true,

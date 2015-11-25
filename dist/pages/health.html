@@ -1,0 +1,22 @@
+<h3>Status Page</h3>
+
+<ul ng-repeat="app in apps" class="apps">
+  <li><strong class="apptitle">{{app.name}}</strong></li>
+  <li>
+    <ul ng-repeat="hk in app.healthchecks" class="apps">
+      <li class="apps inline">
+        <span class="apptitle">{{hk.title}}</span>:
+            <span ng-repeat="st in hk.status" class="apps inline">
+
+
+                <span ng-if="st.healthy">
+                    <i class="fa fa-check-circle fa-fw green"></i> &nbsp;
+                 </span>
+                 <span ng-if="!st.healthy">
+                    <i class="fa fa-times-circle fa-fw red"></i> &nbsp;
+                 </span>
+            </span>
+      </li>
+    </ul>
+  </li>
+</ul>
