@@ -45,6 +45,9 @@ var getChecksByHealthcheck = function(hchk){
     return $http.get( HEALTH_API + '/checks?where={"healthcheck":"' + hchk + '"}')
 }
 
+var getTestResultsByWebhook = function(wh){
+  return $http.get( REPORT_API + '/reports?where={"branch":"'+wh.build.branch+'","build":"'+wh.build.number+'","repo":"'+wh.repo.name+'"}')
+}
   return {
     getDeploys: getDeploys,
     getDependencies: getDependencies,
@@ -56,5 +59,6 @@ var getChecksByHealthcheck = function(hchk){
     getHealthchecks: getHealthchecks,
     getHealthchecksByApp: getHealthchecksByApp,
     getChecksByHealthcheck: getChecksByHealthcheck,
+    getTestResultsByWebhook: getTestResultsByWebhook,
   };
 });

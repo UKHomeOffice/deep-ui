@@ -14,20 +14,21 @@ function makeid()
 app.controller('MainCtrl', function($scope, $location, api, $sce) {
 
     api.getDeploys().success(function(data){
-        console.log(data);
+
         $scope.deploys = data._items.reverse();
         $scope.numDeploys = data._meta.total;
     });
 
     api.getWebhooks().success(function(data){
-        console.log(data._items);
+
         $scope.webhooks = data._items.reverse();
         $scope.numBuilds = data._meta.total;
+
     });
 
     api.getTestResults().success(function(data){
-        console.log(data._items);
         $scope.results = data._items;
+
         var numFailures = 0;
         _.each(data._items, function(item){
             var tests = item.report.testsuite;
@@ -40,8 +41,8 @@ app.controller('MainCtrl', function($scope, $location, api, $sce) {
         $scope.failedBuilds = numFailures;
     });
 
+
     api.getGithubRepos().success(function(data){
-        console.log(data);
         $scope.githubrepos = data.length;
     });
 
@@ -53,6 +54,22 @@ app.controller('MainCtrl', function($scope, $location, api, $sce) {
 
 });
 
+
+app.controller('BuildCtrl', function($scope, api) {
+    api.getWebhooks().success(function(data){
+        $scope.webhooks = data._items.reverse();
+        console.log($scope.webhooks);
+        $scope.numBuilds = data._meta.total;
+        _.each($scope.webhooks, function(wh){
+            wh.failures = 0;
+            api.getTestResultsByWebhook(wh).success(function(data){
+                wh.results = data._items;
+            });
+        });
+
+    });
+
+});
 
 
 app.controller('AppsCtrl', function($scope, api) {

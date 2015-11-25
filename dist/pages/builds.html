@@ -5,18 +5,34 @@
     <th class="mdl-data-table__cell--non-numeric">Created</th>
     <th>Repo</th>
     <th>Branch</th>
+    <th>Build ID</th>
     <th>Commit</th>
     <th>Author</th>
+    <th>&nbsp</th>
   </tr>
 </thead>
 <tbody>
       <tr ng-repeat="wh in webhooks">
 
+          <td>{{wh.build.finished_at * 1000 | date:'dd-MM-yyyy HH:mm:ss'}}</td>
           <td>{{wh.repo.name}}</td>
-          <td>{{wh.build.created_at | date:'dd-MM-yyyy HH:mm:ss'}}</td>
-          <td>{{wh.build.brancj}}</td>
+          <td>{{wh.build.branch}}</td>
+          <td>{{wh.build.number}}</td>
           <td>{{wh.build.commit}}</td>
           <td>{{wh.build.author}}</td>
+          <td>
+
+             <span ng-repeat="results in wh.results" class="apps inline">
+                <span ng-repeat="test in results.report.testsuite" class="apps inline">
+                  <span ng-if="!test.failure">
+                      <i class="fa fa-check-circle fa-fw green"></i> &nbsp;
+                   </span>
+                   <span ng-if="test.failure">
+                      <i class="fa fa-times-circle fa-fw red"></i> &nbsp;
+                   </span>
+                 </span>
+            </span>
+          </td>
       </tr>
   </tbody>
 </table>

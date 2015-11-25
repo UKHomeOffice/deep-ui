@@ -1,10 +1,10 @@
 'use strict';
 
 var DEPDEPHOST = "http://deep-api.ipedrazas.k8s.co.uk:5000";
-// var REPORT_API = "http://deep-reports.ipedrazas.k8s.co.uk:5000"
+var REPORT_API = "http://deep-reports.ipedrazas.k8s.co.uk:5000"
 
 var DEPDEPHOST = "http://deep-api.ipedrazas.k8s.co.uk:5000";
-var REPORT_API = "http://deep-api.ipedrazas.k8s.co.uk:5000";
+// var REPORT_API = "http://deep-api.ipedrazas.k8s.co.uk:5000";
 var APPS_API = "http://deep-api.ipedrazas.k8s.co.uk:5000";
 var HEALTH_API = "http://deep-api.ipedrazas.k8s.co.uk:5000";
 
@@ -23,7 +23,7 @@ app.config(['$routeProvider', '$locationProvider',
       })
       .when('/builds', {
         templateUrl: '/pages/builds.html',
-        controller: 'MainCtrl'
+        controller: 'BuildCtrl'
       })
       .when('/deploys', {
         templateUrl: '/pages/deploys.html',
