@@ -1,8 +1,74 @@
-<ul ng-repeat="app in applications" class="apps">
-  <li>{{app.name}}</li>
-  <li>
-    <ul ng-repeat="comp in app.components" class="apps">
-      <li>{{comp.name}}</li>
-    </ul>
-  </li>
-</ul>
+<div class="row">
+    <div class="col-lg-6 col-lg-offset-1">
+        <h2>Applications</h2>
+        <ul ng-repeat="app in applications" class="apps">
+          <li>{{app.name}}</li>
+          <li>
+            <ul ng-repeat="comp in app.components" class="apps">
+              <li>{{comp.name}}</li>
+            </ul>
+          </li>
+        </ul>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+
+
+
+
+<div class="row">
+    <div class="col-lg-6 col-lg-offset-1">
+
+        <h3>Add new Application</h3>
+        <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Application Name</label>
+            <input type="text" class="form-control" id="appname" placeholder="Application Name">
+          </div>
+          <div class="form-group">
+                <div class="dropdown">
+                  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Components
+                    <span class="caret"></span>
+                  </button>
+
+                  <div class="checkbox" ng-repeat="comp in components">
+                    <label>
+                      <input type="checkbox"> {{comp.name}}
+                    </label>
+                  </div>
+                </div>
+          </div>
+
+          <button type="submit" class="btn btn-default">Create</button>
+        </form>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+
+
+<div class="row">
+    <div class="col-lg-6 col-lg-offset-1">
+        <h3>Add new Component</h3>
+        <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Component Name</label>
+            <input type="text" class="form-control" id="compname" placeholder="Component Name">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Git Repo</label>
+            <input type="text" class="form-control" id="appname" placeholder="git@github.com:UKHomeOffice/[COMPONENT].git">
+          </div>
+
+          <button type="submit" class="btn btn-default">Create</button>
+        </form>
+
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+
+
+

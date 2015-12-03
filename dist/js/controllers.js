@@ -78,6 +78,11 @@ app.controller('AppsCtrl', function($scope, api) {
 
         $scope.applications = data._items;
     });
+    api.getComponents().success(function(data){
+        console.log(data._items);
+
+        $scope.components = data._items;
+    });
 
 });
 
