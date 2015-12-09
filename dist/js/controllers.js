@@ -73,17 +73,44 @@ app.controller('BuildCtrl', function($scope, api) {
 
 
 app.controller('AppsCtrl', function($scope, api) {
-    api.getApplications().success(function(data){
-        console.log(data._items);
+    $scope.new_component = {};
+    $scope.new_application = {};
+    $scope.new_application.components = [];
 
-        $scope.applications = data._items;
-    });
-    api.getComponents().success(function(data){
-        console.log(data._items);
+    var refresh = function(){
+        api.getApplications().success(function(data){
+            $scope.applications = data._items;
+        });
+        api.getComponents().success(function(data){
+            $scope.components = data._items;
+        });
 
-        $scope.components = data._items;
-    });
+    };
 
+    $scope.createComponent = function(){
+        api.addComponent($scope.new_component).success(function(data){
+            $scope.new_component = {};
+            refresh();
+        });
+    }
+
+    $scope.addCompToApp = function(comp){
+        var index = $scope.new_application.components.indexOf(comp._id);
+        if (index > -1) {
+            $scope.new_application.components.splice(index, 1);
+        }else{
+            $scope.new_application.components.push(comp._id);
+        };
+    }
+
+    $scope.createApplication = function(){
+        api.addApplication($scope.new_application).success(function(data){
+            $scope.new_application = {};
+            refresh();
+        });
+    }
+
+    refresh();
 });
 
 

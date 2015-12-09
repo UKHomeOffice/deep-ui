@@ -24,24 +24,17 @@
         <form>
           <div class="form-group">
             <label for="exampleInputEmail1">Application Name</label>
-            <input type="text" class="form-control" id="appname" placeholder="Application Name">
+            <input type="text" class="form-control" id="appname" placeholder="Application Name" ng-model="new_application.name">
           </div>
           <div class="form-group">
-                <div class="dropdown">
-                  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    Components
-                    <span class="caret"></span>
-                  </button>
-
-                  <div class="checkbox" ng-repeat="comp in components">
-                    <label>
-                      <input type="checkbox"> {{comp.name}}
-                    </label>
-                  </div>
-                </div>
+              <div class="checkbox" ng-repeat="comp in components">
+                <label>
+                  <input type="checkbox" ng-click="addCompToApp(comp)"> {{comp.name}}
+                </label>
+              </div>
           </div>
 
-          <button type="submit" class="btn btn-default">Create</button>
+          <button type="submit" class="btn btn-default" ng-click="createApplication()">Create</button>
         </form>
     </div>
     <!-- /.col-lg-12 -->
@@ -55,14 +48,14 @@
         <form>
           <div class="form-group">
             <label for="exampleInputEmail1">Component Name</label>
-            <input type="text" class="form-control" id="compname" placeholder="Component Name">
+            <input type="text" class="form-control" id="compname" placeholder="Component Name" ng-model="new_component.name">
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Git Repo</label>
-            <input type="text" class="form-control" id="appname" placeholder="git@github.com:UKHomeOffice/[COMPONENT].git">
+            <input type="text" class="form-control" id="appname" placeholder="git@github.com:UKHomeOffice/[COMPONENT].git" ng-model="new_component.repo">
           </div>
 
-          <button type="submit" class="btn btn-default">Create</button>
+          <button type="submit" class="btn btn-default" ng-click="createComponent()">Create</button>
         </form>
 
     </div>

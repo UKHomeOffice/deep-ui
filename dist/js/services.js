@@ -48,7 +48,21 @@ var getChecksByHealthcheck = function(hchk){
 var getTestResultsByWebhook = function(wh){
   return $http.get( REPORT_API + '/reports?where={"branch":"'+wh.build.branch+'","build":"'+wh.build.number+'","repo":"'+wh.repo.name+'"}')
 }
+
+var addComponent = function(comp){
+  return $http.post(DEPDEPHOST + '/components', comp);
+
+}
+
+var addApplication = function(app){
+  return $http.post(DEPDEPHOST + '/applications', app);
+
+}
+
+
   return {
+    addApplication: addApplication,
+    addComponent: addComponent,
     getDeploys: getDeploys,
     getDependencies: getDependencies,
     getWebhooks: getWebhooks,
