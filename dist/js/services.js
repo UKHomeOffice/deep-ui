@@ -37,8 +37,8 @@ var getHealthchecks = function(){
    return $http.get( APPS_API + '/healthchecks')
 }
 
-var getHealthchecksByApp = function(){
-   return $http.get( HEALTH_API + '/healthchecks')
+var getHealthchecksByApp = function(app_id){
+   return $http.get( HEALTH_API + '/healthchecks?where={"application":"' + app_id + '" }')
 }
 
 var getChecksByHealthcheck = function(hchk){

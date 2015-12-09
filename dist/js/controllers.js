@@ -92,7 +92,9 @@ app.controller('HealthCtrl', function($scope, api) {
         $scope.apps = data._items;
         console.log($scope.apps);
         _.each($scope.apps, function(app){
+            console.log("App: " + app._id + " - " + app.name)
             api.getHealthchecksByApp(app._id).success(function(healthdata){
+                console.log(healthdata);
                 app.healthchecks = healthdata._items;
                 _.each(app.healthchecks, function(hchk){
                     api.getChecksByHealthcheck(hchk._id).success(function(chk){
