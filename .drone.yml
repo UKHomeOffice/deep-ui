@@ -1,7 +1,6 @@
 
 notify:
   webhook:
-    image: ipedrazas/drone-webhook
     urls:
       - http://deep-api.ipedrazas.k8s.co.uk:5000/webhooks
 
