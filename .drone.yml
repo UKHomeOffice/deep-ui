@@ -23,7 +23,8 @@ publish:
 
 deploy:
   kubernetes:
-    image: quay.io/ukhomeofficedigital/drone-kubernetes
+    image: ukhomeofficedigital/drone-kubernetes
+    registry: quay.io
     replicationcontrollers:
       - kubernetes/deep-web-rc.json
     services: []
