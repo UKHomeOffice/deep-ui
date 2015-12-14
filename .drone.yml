@@ -24,7 +24,7 @@ publish:
 
 deploy:
   kubernetes:
-    image: ipedrazas/drone-kubernetes
+    image: ukhomeofficedigital/drone-kubernetes
     replicationcontrollers:
       - kubernetes/deep-web-rc.json
     services: []
