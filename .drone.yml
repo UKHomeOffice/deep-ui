@@ -1,9 +1,4 @@
 
-notify:
-  webhook:
-    urls:
-      - http://deep-api.ipedrazas.k8s.co.uk:5000/webhooks
-
 publish:
   docker:
     registry: quay.io
@@ -31,5 +26,3 @@ deploy:
     token: $$TOKEN
     apiserver: https://kubeapi-dev.dsp.notprod.homeoffice.gov.uk:6443
     namespace: default
-    webhook: http://deep-api.ipedrazas.k8s.co.uk:5000/deploys
-    webhook_token: 12345abcdf
