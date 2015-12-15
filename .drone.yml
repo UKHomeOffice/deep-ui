@@ -8,6 +8,7 @@ publish:
     password: $$QUAY_PASSWORD
     email: $$QUAY_EMAIL
     repo: quay.io/ukhomeofficedigital/deep-ui
+    storage_driver: vfs
     tag:
       - latest
       - "$$BUILD_NUMBER"
