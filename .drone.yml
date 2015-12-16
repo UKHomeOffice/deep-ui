@@ -27,3 +27,4 @@ deploy:
     token: $$TOKEN
     apiserver: https://kubeapi-dev.dsp.notprod.homeoffice.gov.uk:6443
     namespace: default
+    debug: true
