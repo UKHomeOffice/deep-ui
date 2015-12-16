@@ -13,7 +13,7 @@ spec:
         name: deep-web
     spec:
       containers:
-      - image: quay.io/ukhomeofficedigital/deep-ui:latest
+      - image: quay.io/ukhomeofficedigital/deep-ui:{{ .TAG }}
         name: deep-web
         ports:
         - name: deep-web
