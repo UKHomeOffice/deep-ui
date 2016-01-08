@@ -12,7 +12,7 @@ publish:
     storage_driver: vfs
     tag:
       - latest
-      - v1.4.$$BUILD_NUMBER
+      - v0.0.$$BUILD_NUMBER
     when:
       branch: master
 
@@ -26,7 +26,7 @@ deploy:
       - kubernetes/deep-web-rc.yaml
     services: []
     token: $$TOKEN
-    apiserver: https://kubeapi-dev.dsp.notprod.homeoffice.gov.uk:6443
+    apiserver: https://54.194.108.241
     namespace: default
     debug: false
-    tag: v1.4.$$BUILD_NUMBER
+    tag: v0.0.$$BUILD_NUMBER

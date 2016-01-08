@@ -11,6 +11,8 @@ spec:
     metadata:
       labels:
         name: deep-web
+        image.base: nginx:latest
+        lang: angularjs
     spec:
       containers:
       - image: quay.io/ukhomeofficedigital/deep-ui:{{ .TAG }}
@@ -18,3 +20,8 @@ spec:
         ports:
         - name: deep-web
           containerPort: 80
+
+
+
+
+
