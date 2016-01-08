@@ -28,5 +28,5 @@ deploy:
     token: $$TOKEN
     apiserver: https://54.194.108.241
     namespace: default
-    debug: false
+    debug: true
     tag: v0.0.$$BUILD_NUMBER
