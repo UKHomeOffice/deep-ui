@@ -24,7 +24,8 @@ deploy:
     registry: quay.io
     replicationcontrollers:
       - kubernetes/deep-web-rc.yaml
-    services: []
+    services:
+     - kubernetes/deep-web-svc.yaml
     token: $$TOKEN
     apiserver: https://54.194.108.241
     namespace: default
