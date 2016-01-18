@@ -2,6 +2,7 @@
 from:
   - scratch
   - "alpine:latest"
+  - nginx
 
 RootUser: true
 
