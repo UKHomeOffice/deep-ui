@@ -1,4 +1,13 @@
-debug: true
+build:
+  image: golang:1.5.1
+  environment:
+    - GO15VENDOREXPERIMENT=1
+  environment:
+    - GOPATH=/dockerfile-validator
+  commands:
+    - wget https://github.com/UKHomeOffice/dockerfile-validator/releases/download/v0.1.0/dockerfile-validatorlinux_amd64
+    - chmod a+x dockerfile-validatorlinux_amd64
+    - ./dockerfile-validatorlinux_amd64 -r rules.yaml
 
 publish:
   docker:

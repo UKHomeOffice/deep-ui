@@ -1,0 +1,7 @@
+---
+from:
+  - scratch
+  - "alpine:latest"
+
+RootUser: true
+

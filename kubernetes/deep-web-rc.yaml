@@ -13,6 +13,7 @@ spec:
         name: deep-web
         image.base: nginx
         lang: angularjs
+        deep: web
     spec:
       containers:
       - image: quay.io/ukhomeofficedigital/deep-ui:{{ .TAG }}
