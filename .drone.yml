@@ -11,7 +11,7 @@ build:
 
 publish:
   docker:
-    # image: quay.io/ukhomeofficedigital/drone-docker
+    image: quay.io/ukhomeofficedigital/drone-docker
     registry: quay.io
     # environment:
     #   - DOCKER_LAUNCH_DEBUG=true
@@ -28,16 +28,16 @@ publish:
 
     branch: master
 
-deploy:
-  kubernetes:
-    image: quay.io/ukhomeofficedigital/drone-kubernetes
-    registry: quay.io
-    replicationcontrollers:
-      - kubernetes/deep-web-rc.yaml
-    services:
-     - kubernetes/deep-web-svc.yaml
-    token: $$TOKEN
-    apiserver: https://54.194.108.241
-    namespace: default
-    debug: true
-    tag: v0.0.$$BUILD_NUMBER
+# deploy:
+#   kubernetes:
+#     image: quay.io/ukhomeofficedigital/drone-kubernetes
+#     registry: quay.io
+#     replicationcontrollers:
+#       - kubernetes/deep-web-rc.yaml
+#     services:
+#      - kubernetes/deep-web-svc.yaml
+#     token: $$TOKEN
+#     apiserver: https://54.194.108.241
+#     namespace: default
+#     debug: true
+#     tag: v0.0.$$BUILD_NUMBER
