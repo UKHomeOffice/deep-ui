@@ -12,7 +12,7 @@ build:
 publish:
   docker:
     image: quay.io/ukhomeofficedigital/drone-docker
-    priviliged: true
+    privileged: true
     registry: quay.io
     environment:
       - DOCKER_LAUNCH_DEBUG=true
